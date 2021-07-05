@@ -53,7 +53,9 @@ class App extends React.Component {
 
   userMenu = (
     <Menu>
-      <Menu.Item onClick={this.handleLogOut}>Log Out</Menu.Item>
+      <Menu.Item key="logout" onClick={this.handleLogOut}>
+        Log Out
+      </Menu.Item>
     </Menu>
   );
 
@@ -72,7 +74,9 @@ class App extends React.Component {
             </div>
           )}
         </Header>
-        <Content style={{ height: "calc(100% - 64px)", margin: 20 }}>
+        <Content
+          style={{ height: "calc(100% - 64px)", margin: 20, overflow: "auto" }}
+        >
           {this.renderContent()}
         </Content>
       </Layout>

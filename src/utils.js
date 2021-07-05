@@ -48,3 +48,53 @@ export const getStaysByHost = () => {
     return response.json();
   });
 };
+
+export const deleteStay = (stayId) => {
+  const authToken = localStorage.getItem("authToken");
+  const deleteStayUrl = `${domain}/stays/${stayId}`;
+
+  return fetch(deleteStayUrl, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }).then((response) => {
+    if (response.status !== 200) {
+      throw Error("Fail to delete stay");
+    }
+  });
+};
+
+export const getReservationsByStay = (stayId) => {
+  const authToken = localStorage.getItem("authToken");
+  const deleteStayUrl = `${domain}/stays/reservations/${stayId}`;
+
+  return fetch(deleteStayUrl, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }).then((response) => {
+    if (response.status !== 200) {
+      throw Error("Fail to get reservations by stay");
+    }
+
+    return response.json();
+  });
+};
+
+export const uploadStay = (data) => {
+  const authToken = localStorage.getItem("authToken");
+  const uploadStayUrl = `${domain}/stays`;
+
+  return fetch(uploadStayUrl, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+    body: data,
+  }).then((response) => {
+    if (response.status !== 200) {
+      throw Error("Fail to upload stay");
+    }
+  });
+};
