@@ -124,7 +124,7 @@ class ViewReservationsButton extends React.Component {
   }
 }
 
-class StayDetailInfoButton extends React.Component {
+export class StayDetailInfoButton extends React.Component {
   state = {
     modalVisible: false,
   };
