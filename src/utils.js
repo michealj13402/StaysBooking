@@ -1,4 +1,4 @@
-const domain = "https://stay-dot-around-179500.uc.r.appspot.com";
+const domain = "http://localhost:8080";
 
 export const login = (credential, asHost) => {
   const loginUrl = `${domain}/authenticate/${asHost ? "host" : "guest"}`;
